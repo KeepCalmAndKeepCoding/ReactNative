@@ -5,6 +5,7 @@ import {
 
 import {
   Login,
+  Register,
 } from '@pages';
 
 export default class App extends Component<Props> {
@@ -12,7 +13,7 @@ export default class App extends Component<Props> {
     return (
       <View style={ {flex: 1} }>
 
-        <Login/>
+        <Register/>
 
       </View>
     );
