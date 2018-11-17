@@ -12,7 +12,7 @@ export default class FormGroup extends Component<Props> {
     return (
       <TextInput
         key={ index }
-        style={ [Styles.input, this.props.style] }
+        style={ this.props.style }
         placeholder={ placeholder }
         placeholderTextColor={ 'red' }
         value={ this.props.values[inputName] }

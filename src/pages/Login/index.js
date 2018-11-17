@@ -38,7 +38,23 @@ export default class Login extends Component<Props> {
         <LoginTitle />
 
         {/* =================== Forms section ===================== */}
-        <FormGroup onChangeText={ (inputName, text) => this.handleChange(inputName, text) } />
+        <FormGroup
+          style={ Styles.input }
+          values={ this.state }
+          onChangeText={ (inputName, text) => this.handleChange(inputName, text) }
+          forms={[
+            {
+              placeholder: "USERNAME",
+              inputName: "username",
+              isPassword: false,
+            },
+            {
+              placeholder: "PASSWORD",
+              inputName: "password",
+              isPassword: true,
+            },
+          ]}
+        />
 
         {/* =================== Buttons section ===================== */}
         <ButtonGroup username={ this.state.username }  data={ this.state } />
