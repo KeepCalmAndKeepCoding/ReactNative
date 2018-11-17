@@ -53,7 +53,7 @@ export default class Register extends Component<Props> {
 
   _renderFooter() {
     return (
-      <TouchableOpacity style={ Styles.footer.container }>
+      <TouchableOpacity style={ Styles.footer.container } onPress={ Actions.productList }>
         <Text style={ Styles.footer.text }>
           REGISTER ME
         </Text>
@@ -85,17 +85,11 @@ export default class Register extends Component<Props> {
 
     return (
         <View style={ Styles.main.form.groupContainer }>
-          
-          { renderedForm }          
+
+          { renderedForm }
 
         </View>
     );
-
-
-          // { this._renderInput("FULL NAME", "fullname", false) }
-          // { this._renderInput("USERNAME", "username", false) }
-          // { this._renderInput("PASSWORD", "password", true) }
-          // { this._renderInput("CONFIRM PASSWORD", "confirmPassword", true) }
   }
 
   _renderTOC() {
@@ -121,7 +115,7 @@ export default class Register extends Component<Props> {
           { this._renderHeader() }
 
           <View style={ Styles.main.container }>
-            
+
             { this._renderFormGroups([
               {
                 placeholder: "FULL NAME",

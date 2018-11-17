@@ -19,7 +19,6 @@ export default class ButtonGroup extends Component<Props> {
       navData: {
         username: this.props.username
       },
-      type: "replace",
     });
   }
 
