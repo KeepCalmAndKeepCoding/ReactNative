@@ -8,12 +8,14 @@ import {
 import Styles from './style';
 
 export default class FormGroup extends Component<Props> {
-  _renderInput(placeholder = "", isPassword = false, inputName) {
+  _renderInput(placeholder = "", isPassword = false, inputName, index) {
     return (
       <TextInput
-        style={ Styles.input }
+        key={ index }
+        style={ [Styles.input, this.props.style] }
         placeholder={ placeholder }
-        placeholderTextColor={ 'yellow' }
+        placeholderTextColor={ 'red' }
+        value={ this.props.values[inputName] }
         autoCapitalize={ "none" }
         autoCorrect={ false }
         secureTextEntry={ isPassword }
@@ -23,13 +25,25 @@ export default class FormGroup extends Component<Props> {
     );
   }
 
+  _renderFormGroups() {
+    const renderedForm = this.props.forms.map((form, index) => {
+      return this._renderInput(form.placeholder, form.inputName, !!form.isPassword, index)
+    });
+
+    return (
+        <View style={ Styles.main.form.groupContainer }>
+
+          { renderedForm }
+
+        </View>
+    );
+  }
+
   render() {
     return (
       <View style={ Styles.container }>
 
-        { this._renderInput("USERNAME", false, 'username') }
-
-        { this._renderInput("PASSWORD", true, 'password') }
+        { this._renderFormGroups() }
 
       </View>
     );

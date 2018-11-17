@@ -9,11 +9,9 @@ import { Actions } from 'react-native-router-flux';
 
 import Styles from './style';
 
-// import {
-//   LoginTitle,
-//   FormGroup,
-//   ButtonGroup,
-// } from "@components";
+import {
+  FormGroup,
+} from "@components";
 
 export default class Register extends Component<Props> {
   constructor(props) {
@@ -61,37 +59,6 @@ export default class Register extends Component<Props> {
     );
   }
 
-  _renderInput(placeholder, inputName, isPassword, index) {
-    return (
-      <TextInput
-        key={ index }
-        style={ Styles.main.form.input }
-        placeholder={ placeholder }
-        value={ this.state[inputName] }
-        onChangeText={ (text) => this.handleChange(inputName, text) }
-        placeholderTextColor={ "red" }
-        autoCapitalize={ "none" }
-        autoCorrect={ false }
-        secureTextEntry={ isPassword }
-        underlineColorAndroid={ "transparent" }
-      />
-    );
-  }
-
-  _renderFormGroups(forms = []) {
-    const renderedForm = forms.map((form, index) => {
-      return this._renderInput(form.placeholder, form.inputName, !!form.isPassword, index)
-    })
-
-    return (
-        <View style={ Styles.main.form.groupContainer }>
-
-          { renderedForm }
-
-        </View>
-    );
-  }
-
   _renderTOC() {
     return (
       <View style={ Styles.main.toc.container }>
@@ -116,28 +83,38 @@ export default class Register extends Component<Props> {
 
           <View style={ Styles.main.container }>
 
-            { this._renderFormGroups([
-              {
-                placeholder: "FULL NAME",
-                inputName: "fullname",
-                isPassword: false,
-              },
-              {
-                placeholder: "USERNAME",
-                inputName: "username",
-                isPassword: false,
-              },
-              {
-                placeholder: "PASSWORD",
-                inputName: "password",
-                isPassword: true,
-              },
-              {
-                placeholder: "CONFIRM PASSWORD",
-                inputName: "confirmPassword",
-                isPassword: true,
-              },
-            ]) }
+            <FormGroup
+              style={ Styles.main.form.input }
+              values={ this.state }
+              onChangeText={ (inputName, text) => this.handleChange(inputName, text) }
+              forms={[
+                {
+                  placeholder: "FULL NAME",
+                  inputName: "fullname",
+                  isPassword: false,
+                },
+                {
+                  placeholder: "USERNAME",
+                  inputName: "username",
+                  isPassword: false,
+                },
+                {
+                  placeholder: "PASSWORD",
+                  inputName: "password",
+                  isPassword: true,
+                },
+                {
+                  placeholder: "CONFIRM PASSWORD",
+                  inputName: "confirmPassword",
+                  isPassword: true,
+                },
+                {
+                  placeholder: "NAMA",
+                  inputName: "nama",
+                  isPassword: true,
+                },
+              ]}
+            />
 
             { this._renderTOC() }
           </View>
