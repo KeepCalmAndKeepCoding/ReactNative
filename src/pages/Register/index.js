@@ -61,9 +61,10 @@ export default class Register extends Component<Props> {
     );
   }
 
-  _renderInput(placeholder, inputName, isPassword) {
+  _renderInput(placeholder, inputName, isPassword, index) {
     return (
       <TextInput
+        key={ index }
         style={ Styles.main.form.input }
         placeholder={ placeholder }
         value={ this.state[inputName] }
@@ -77,17 +78,24 @@ export default class Register extends Component<Props> {
     );
   }
 
-  _renderFormGroups() {
+  _renderFormGroups(forms = []) {
+    const renderedForm = forms.map((form, index) => {
+      return this._renderInput(form.placeholder, form.inputName, !!form.isPassword, index)
+    })
+
     return (
         <View style={ Styles.main.form.groupContainer }>
           
-          { this._renderInput("FULL NAME", "fullname", false) }
-          { this._renderInput("USERNAME", "username", false) }
-          { this._renderInput("PASSWORD", "password", true) }
-          { this._renderInput("CONFIRM PASSWORD", "confirmPassword", true) }
+          { renderedForm }          
 
         </View>
     );
+
+
+          // { this._renderInput("FULL NAME", "fullname", false) }
+          // { this._renderInput("USERNAME", "username", false) }
+          // { this._renderInput("PASSWORD", "password", true) }
+          // { this._renderInput("CONFIRM PASSWORD", "confirmPassword", true) }
   }
 
   _renderTOC() {
@@ -113,7 +121,29 @@ export default class Register extends Component<Props> {
           { this._renderHeader() }
 
           <View style={ Styles.main.container }>
-            { this._renderFormGroups() }
+            
+            { this._renderFormGroups([
+              {
+                placeholder: "FULL NAME",
+                inputName: "fullname",
+                isPassword: false,
+              },
+              {
+                placeholder: "USERNAME",
+                inputName: "username",
+                isPassword: false,
+              },
+              {
+                placeholder: "PASSWORD",
+                inputName: "password",
+                isPassword: true,
+              },
+              {
+                placeholder: "CONFIRM PASSWORD",
+                inputName: "confirmPassword",
+                isPassword: true,
+              },
+            ]) }
 
             { this._renderTOC() }
           </View>
