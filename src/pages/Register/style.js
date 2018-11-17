@@ -2,6 +2,7 @@ export default {
   container: {
     flex: 1,
     backgroundColor: "white",
+    borderWidth: 1,
   },
 
   iosContainer: {
@@ -59,6 +60,7 @@ export default {
       },
 
       input: {
+        // flex: -1,
         borderColor: "red",
         borderWidth: 2,
         height: 50,

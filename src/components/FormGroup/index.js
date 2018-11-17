@@ -14,7 +14,7 @@ export default class FormGroup extends Component<Props> {
         key={ index }
         style={ this.props.style }
         placeholder={ placeholder }
-        placeholderTextColor={ 'red' }
+        placeholderTextColor={ this.props.placeholderTextColor }
         value={ this.props.values[inputName] }
         autoCapitalize={ "none" }
         autoCorrect={ false }
@@ -27,11 +27,11 @@ export default class FormGroup extends Component<Props> {
 
   _renderFormGroups() {
     const renderedForm = this.props.forms.map((form, index) => {
-      return this._renderInput(form.placeholder, form.inputName, !!form.isPassword, index)
+      return this._renderInput(form.placeholder, !!form.isPassword, form.inputName, index)
     });
 
     return (
-        <View style={ Styles.main.form.groupContainer }>
+        <View style={ Styles.groupContainer }>
 
           { renderedForm }
 

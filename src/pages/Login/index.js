@@ -42,6 +42,7 @@ export default class Login extends Component<Props> {
           style={ Styles.input }
           values={ this.state }
           onChangeText={ (inputName, text) => this.handleChange(inputName, text) }
+          placeholderTextColor={ "yellow" }
           forms={[
             {
               placeholder: "USERNAME",

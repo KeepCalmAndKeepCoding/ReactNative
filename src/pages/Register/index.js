@@ -87,6 +87,7 @@ export default class Register extends Component<Props> {
               style={ Styles.main.form.input }
               values={ this.state }
               onChangeText={ (inputName, text) => this.handleChange(inputName, text) }
+              placeholderTextColor={ "red" }
               forms={[
                 {
                   placeholder: "FULL NAME",
