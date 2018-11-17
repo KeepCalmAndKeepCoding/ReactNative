@@ -41,7 +41,7 @@ export default class Login extends Component<Props> {
         <FormGroup onChangeText={ (inputName, text) => this.handleChange(inputName, text) } />
 
         {/* =================== Buttons section ===================== */}
-        <ButtonGroup data={ this.state } />
+        <ButtonGroup username={ this.state.username }  data={ this.state } />
 
       </View>
     );

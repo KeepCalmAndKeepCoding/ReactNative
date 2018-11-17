@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import {
   View,
 } from 'react-native';
+import {
+  Router,
+  Scene,
+  Stack,
+} from 'react-native-router-flux';
 
 import {
   Login,
@@ -11,11 +16,14 @@ import {
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={ {flex: 1} }>
+      <Router>
+        <Stack key="root" hideNavBar>
 
-        <Register/>
+          <Scene key="login" component={Login} initial/>
+          <Scene key="register" component={Register}/>
 
-      </View>
+        </Stack>
+      </Router>
     );
   }
 }

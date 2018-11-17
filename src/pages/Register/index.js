@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import Styles from './style';
 
@@ -20,7 +21,7 @@ export default class Register extends Component<Props> {
 
     this.state = {
       fullname: '',
-      email: '',
+      username: props.navData.username,
       password: '',
       confirmPassword: '',
     }
@@ -37,7 +38,7 @@ export default class Register extends Component<Props> {
   _renderHeader() {
     return (
       <View style={ Styles.header.container }>
-        <TouchableOpacity style={ Styles.header.backButton.container }>
+        <TouchableOpacity onPress={ () => Actions.pop() } style={ Styles.header.backButton.container }>
           <Text style={ Styles.header.backButton.content }>
             { "<" }
           </Text>
@@ -81,7 +82,7 @@ export default class Register extends Component<Props> {
         <View style={ Styles.main.form.groupContainer }>
           
           { this._renderInput("FULL NAME", "fullname", false) }
-          { this._renderInput("EMAIL", "email", false) }
+          { this._renderInput("USERNAME", "username", false) }
           { this._renderInput("PASSWORD", "password", true) }
           { this._renderInput("CONFIRM PASSWORD", "confirmPassword", true) }
 
@@ -93,14 +94,10 @@ export default class Register extends Component<Props> {
     return (
       <View style={ Styles.main.toc.container }>
 
-        <Text style={{
-
-        }}>
+        <Text style={{}}>
           By registering to this application
         </Text>
-        <Text style={{
-
-        }}>
+        <Text style={{}}>
           I hereby aggree to the <Text style={ Styles.main.toc.blue }>Terms and Conditions</Text>
         </Text>
 

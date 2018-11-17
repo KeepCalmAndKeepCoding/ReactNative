@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import Styles from './style';
 
@@ -11,6 +12,15 @@ export default class ButtonGroup extends Component<Props> {
   handleSignIn() {
     // this.props.login(this.state);
     alert(JSON.stringify(this.props.data));
+  }
+
+  handleRegister() {
+    Actions.register({
+      navData: {
+        username: this.props.username
+      },
+      type: "replace",
+    });
   }
 
   _renderButtonOne(title, type = "general", onPress) {
@@ -38,7 +48,7 @@ export default class ButtonGroup extends Component<Props> {
 
         { this._renderButtonOne("SIGN IN", "block", () => this.handleSignIn()) }
 
-        { this._renderButtonOne("VIA FACEBOOK", "general", () => this.handleSignIn()) }
+        { this._renderButtonOne("REGISTER", "general", () => this.handleRegister()) }
 
       </View>
     );
