@@ -1,7 +1,7 @@
-import { createStore } from "redux";
+import { createStore, compose } from "redux";
 
-import rootReducers from './reducers';
+import rootReducers from '../reducers';
 
-const store = createStore(rootReducers);
+const appStore = createStore(rootReducers);
 
-export default store;
+export default appStore;

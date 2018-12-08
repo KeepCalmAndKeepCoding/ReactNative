@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import {
   View,
 } from 'react-native';
@@ -14,18 +15,22 @@ import {
   ProductList,
 } from '@pages';
 
+import appStore from './src/redux/store';
+
 export default class App extends Component<Props> {
   render() {
     return (
-      <Router>
-        <Stack key="root" hideNavBar>
+      <Provider store={ appStore }>
+        <Router>
+          <Stack key="root" hideNavBar>
 
-          <Scene key="login" component={Login} initial/>
-          <Scene key="register" component={Register}/>
-          <Scene key="productList" component={ProductList}/>
+            <Scene key="login" component={Login} initial/>
+            <Scene key="register" component={Register}/>
+            <Scene key="productList" component={ProductList}/>
 
-        </Stack>
-      </Router>
+          </Stack>
+        </Router>
+      </Provider>
     );
   }
 }

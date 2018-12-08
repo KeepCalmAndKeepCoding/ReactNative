@@ -3,9 +3,14 @@ import {
   View,
   Text,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
+import { connect } from 'react-redux';
 
 import Styles from './style';
+import {
+  userActions,
+} from '../../redux/actions';
 
 import {
   LoginTitle,
@@ -14,7 +19,19 @@ import {
   Input,
 } from "@components";
 
-export default class Login extends Component<Props> {
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ubahUserName: (data) => dispatch(userActions.ubahUserName(data)),
+  };
+};
+
+class Login extends Component<Props> {
   constructor(props) {
     super(props);
 
@@ -35,6 +52,13 @@ export default class Login extends Component<Props> {
         <LoginTitle />
 
         {/* =================== Forms section ===================== */}
+        <View style={{backgroundColor: 'white'}}>
+          <Text style={{fontSize: 20}}>Ini dari reducer user:{ this.props.user.username }</Text>
+          <TouchableOpacity style={{backgroundColor: 'pink', padding: 20}} onPress={ () => this.props.ubahUserName(this.state.username) }>
+            <Text>Change</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={ Styles.inputContainer }>
           <Input
             placeholder={ "USERNAME" }
@@ -58,3 +82,5 @@ export default class Login extends Component<Props> {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps) (Login)
