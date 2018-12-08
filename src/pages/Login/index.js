@@ -10,6 +10,7 @@ import {
   LoginTitle,
   FormGroup,
   ButtonGroup,
+  Input,
 } from "@components";
 
 export default class Login extends Component<Props> {
@@ -22,14 +23,6 @@ export default class Login extends Component<Props> {
     }
   }
 
-  handleChange(inputName, text) {
-    let state = this.state;
-
-    state[inputName] = text;
-
-    this.setState(state);
-  }
-
   render() {
     return (
       <View style={ Styles.container }>
@@ -38,23 +31,18 @@ export default class Login extends Component<Props> {
         <LoginTitle />
 
         {/* =================== Forms section ===================== */}
-        <FormGroup
-          style={ Styles.input }
-          values={ this.state }
-          onChangeText={ (inputName, text) => this.handleChange(inputName, text) }
+        <Input
+          placeholder={ "USERNAME" }
           placeholderTextColor={ "yellow" }
-          forms={[
-            {
-              placeholder: "USERNAME",
-              inputName: "username",
-              isPassword: false,
-            },
-            {
-              placeholder: "PASSWORD",
-              inputName: "password",
-              isPassword: true,
-            },
-          ]}
+          value={ this.state.username }
+          onChangeText={ (username) => this.setState({username}) }
+        />
+        <Input
+          placeholder={ "PASSWORD" }
+          placeholderTextColor={ "yellow" }
+          value={ this.state.password }
+          secureTextEntry
+          onChangeText={ (password) => this.setState({password}) }
         />
 
         {/* =================== Buttons section ===================== */}
