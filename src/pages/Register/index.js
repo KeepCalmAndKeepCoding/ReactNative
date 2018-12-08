@@ -11,6 +11,7 @@ import Styles from './style';
 
 import {
   FormGroup,
+  Input,
 } from "@components";
 
 export default class Register extends Component<Props> {
@@ -115,7 +116,40 @@ export default class Register extends Component<Props> {
   }
 
   renderForm() {
-    return null;
+    return (
+      <View >
+        <Input
+          style={ Styles.main.form.input }
+          placeholder={ "FULL NAME" }
+          placeholderTextColor={ "red" }
+          value={ this.state.fullname }
+          onChangeText={ (fullname) => this.setState({fullname}) }
+        />
+        <Input
+          style={ Styles.main.form.input }
+          placeholder={ "USERNAME" }
+          placeholderTextColor={ "red" }
+          value={ this.state.username }
+          onChangeText={ (username) => this.setState({username}) }
+        />
+        <Input
+          style={ Styles.main.form.input }
+          placeholder={ "PASSWORD" }
+          placeholderTextColor={ "red" }
+          value={ this.state.password }
+          secureTextEntry
+          onChangeText={ (password) => this.setState({password}) }
+        />
+        <Input
+          style={ Styles.main.form.input }
+          placeholder={ "CONFIRM PASSWORD" }
+          placeholderTextColor={ "red" }
+          value={ this.state.confirmPassword }
+          secureTextEntry
+          onChangeText={ (confirmPassword) => this.setState({confirmPassword}) }
+        />
+      </View>
+    )
   };
 
   render() {
@@ -132,7 +166,7 @@ export default class Register extends Component<Props> {
             { this.renderForm() }
 
             { this._renderTOC() }
-            
+
           </View>
 
           { this._renderFooter() }
