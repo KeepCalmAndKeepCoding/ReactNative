@@ -5,10 +5,13 @@ export default {
     paddingHorizontal: 30,
   },
 
+  inputContainer: {
+    marginBottom: 50,
+  },
+
   input: {
     borderWidth: 1,
     borderColor: "white",
-    // width: 270,
     height: 45,
     color: "white",
     paddingHorizontal: 20,

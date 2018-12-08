@@ -132,6 +132,7 @@ export default class Register extends Component<Props> {
             { this.renderForm() }
 
             { this._renderTOC() }
+            
           </View>
 
           { this._renderFooter() }
