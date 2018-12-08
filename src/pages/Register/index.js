@@ -83,39 +83,41 @@ export default class Register extends Component<Props> {
 
           <View style={ Styles.main.container }>
 
-            <FormGroup
-              style={ Styles.main.form.input }
-              values={ this.state }
-              onChangeText={ (inputName, text) => this.handleChange(inputName, text) }
-              placeholderTextColor={ "red" }
-              forms={[
-                {
-                  placeholder: "FULL NAME",
-                  inputName: "fullname",
-                  isPassword: false,
-                },
-                {
-                  placeholder: "USERNAME",
-                  inputName: "username",
-                  isPassword: false,
-                },
-                {
-                  placeholder: "PASSWORD",
-                  inputName: "password",
-                  isPassword: true,
-                },
-                {
-                  placeholder: "CONFIRM PASSWORD",
-                  inputName: "confirmPassword",
-                  isPassword: true,
-                },
-                {
-                  placeholder: "NAMA",
-                  inputName: "nama",
-                  isPassword: true,
-                },
-              ]}
-            />
+            <View style={ Styles.main.form.groupContainer }>
+              <FormGroup
+                style={ Styles.main.form.input }
+                values={ this.state }
+                onChangeText={ (inputName, text) => this.handleChange(inputName, text) }
+                placeholderTextColor={ "red" }
+                forms={[
+                  {
+                    placeholder: "FULL NAME",
+                    inputName: "fullname",
+                    isPassword: false,
+                  },
+                  {
+                    placeholder: "USERNAME",
+                    inputName: "username",
+                    isPassword: false,
+                  },
+                  {
+                    placeholder: "PASSWORD",
+                    inputName: "password",
+                    isPassword: true,
+                  },
+                  {
+                    placeholder: "CONFIRM PASSWORD",
+                    inputName: "confirmPassword",
+                    isPassword: true,
+                  },
+                  {
+                    placeholder: "NAMA",
+                    inputName: "nama",
+                    isPassword: true,
+                  },
+                ]}
+              />
+            </View>
 
             { this._renderTOC() }
           </View>

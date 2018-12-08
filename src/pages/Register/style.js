@@ -60,7 +60,7 @@ export default {
       },
 
       input: {
-        // flex: -1,
+        flex: -1,
         borderColor: "red",
         borderWidth: 2,
         height: 50,
