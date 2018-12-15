@@ -1,3 +1,5 @@
+import errorActions from './Error';
+
 export function ubahUserName(data) {
   return {
     type: 'UBAH_USERNAME',
@@ -5,6 +7,41 @@ export function ubahUserName(data) {
       username: data
     }
   }
+}
+
+export function ubahUserNameDariApi() {
+  return (dispatch) => {
+    fetch('https://swapi.co/api/people/', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        alert(response.statusText);
+
+        // dispatch(errorActions.errorHandler({
+        //   status: response.status,
+        //   statusText: response.statusText
+        // }));
+      }
+    })
+    .then(response => {
+      dispatch(ubahUserName(response.result[0].name))
+    })
+    .catch(err => {
+      alert(err);
+
+      // dispatch(errorActions.errorHandler({
+      //   status: response.status,
+      //   statusText: response.statusText
+      // }));
+    });
+  };
 }
 
 export function ubahPassword() {

@@ -28,6 +28,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     ubahUserName: (data) => dispatch(userActions.ubahUserName(data)),
+    ubahUserNameDariApi: () => dispatch(userActions.ubahUserNameDariApi()),
   };
 };
 
@@ -38,8 +39,12 @@ class Login extends Component<Props> {
     this.state = {
       username: '',
       password: '',
-    }
-  }
+    };
+  };
+
+  componentDidMount() {
+    this.props.ubahUserNameDariApi();
+  };
 
   render() {
     return (
