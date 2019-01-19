@@ -11,7 +11,7 @@ import Styles from './style';
 export default class ButtonGroup extends Component<Props> {
   handleSignIn() {
     // this.props.login(this.state);
-    alert(JSON.stringify(this.props.data));
+    // alert(JSON.stringify(this.props.data));
   }
 
   handleRegister() {

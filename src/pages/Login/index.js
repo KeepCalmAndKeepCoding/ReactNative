@@ -58,10 +58,16 @@ class Login extends Component<Props> {
 
         {/* =================== Forms section ===================== */}
         <View style={{backgroundColor: 'white'}}>
+
           <Text style={{fontSize: 20}}>Ini dari reducer user:{ this.props.user.username }</Text>
-          <TouchableOpacity style={{backgroundColor: 'pink', padding: 20}} onPress={ () => this.props.ubahUserName(this.state.username) }>
+
+          <TouchableOpacity
+            style={{backgroundColor: 'pink', padding: 20}}
+            onPress={ () => this.props.ubahUserName(this.state.username) }
+          >
             <Text>Change</Text>
           </TouchableOpacity>
+
         </View>
 
         <View style={ Styles.inputContainer }>

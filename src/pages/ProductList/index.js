@@ -9,6 +9,8 @@ import Styles from './style';
 
 export default class ProductList extends Component<Props> {
   render() {
-    <View><Text>asdasd</Text></View>
-  }
-}
+    return (
+      <View><Text>asdasd</Text></View>
+    );
+  };
+};

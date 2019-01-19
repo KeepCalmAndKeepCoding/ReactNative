@@ -22,24 +22,22 @@ export function ubahUserNameDariApi() {
       if (response.status === 200) {
         return response.json();
       } else {
-        alert(response.statusText);
-
-        // dispatch(errorActions.errorHandler({
-        //   status: response.status,
-        //   statusText: response.statusText
-        // }));
+        dispatch(errorActions.errorHandler({
+          status: response.status,
+          statusText: response.statusText
+        }));
       }
     })
     .then(response => {
-      dispatch(ubahUserName(response.result[0].name))
+      dispatch(ubahUserName(response.results[0].name))
     })
     .catch(err => {
-      alert(err);
+      alert('dari actions', err);
 
-      // dispatch(errorActions.errorHandler({
-      //   status: response.status,
-      //   statusText: response.statusText
-      // }));
+      dispatch(errorActions.errorHandler({
+        status: response.status,
+        statusText: response.statusText
+      }));
     });
   };
 }
