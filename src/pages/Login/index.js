@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import Styles from './style';
 import {
   userActions,
-} from '../../redux/actions';
+} from '@actions';
 
 import {
   LoginTitle,

@@ -8,3 +8,14 @@ const rootReducers = combineReducers({
 });
 
 export default rootReducers;
+
+// ====== STANDARD ======
+
+// import { combineReducers } from 'redux';
+// // import errorReducers from './Error';
+//
+// const rootReducers = combineReducers({
+//   // error: errorReducers,
+// });
+//
+// export default rootReducers;

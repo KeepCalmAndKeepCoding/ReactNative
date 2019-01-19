@@ -14,3 +14,14 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+// ====== STANDARD ======
+
+// const initialState = {
+//   code: '',
+//   message: '',
+// };
+//
+// export default (state = initialState, action) => {
+//   return state;
+// };
