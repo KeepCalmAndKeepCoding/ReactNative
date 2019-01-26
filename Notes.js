@@ -66,3 +66,5 @@ RESPONSE JSON
                 ],
               }
 }
+
+should_relogin
