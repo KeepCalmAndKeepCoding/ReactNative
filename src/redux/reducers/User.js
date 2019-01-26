@@ -1,3 +1,5 @@
+import { REHYDRATE } from 'redux-persist';
+
 const initialState = {
   username: '',
   password: '',
@@ -5,7 +7,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case REHYDRATE:
+    console.log('ini dari persist', action.payload);
+      return action.payload.user ? action.payload.user : state;
+
     case 'UBAH_USERNAME':
+    console.log('masuk username');
       return {
         ...state,
         username: action.payload.username
@@ -16,6 +23,7 @@ export default (state = initialState, action) => {
         password: action.payload.password
       };
     default:
+    console.log('masuk default');
       return state;
   }
 };

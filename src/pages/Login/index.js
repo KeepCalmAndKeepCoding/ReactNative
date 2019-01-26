@@ -43,7 +43,7 @@ class Login extends Component<Props> {
   };
 
   componentDidMount() {
-    this.props.ubahUserNameDariApi();
+    // this.props.ubahUserNameDariApi();
   };
 
   render() {
