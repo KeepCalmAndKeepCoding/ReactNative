@@ -9,6 +9,7 @@ import rootReducers from '../reducers';
 const persistConfig = {
   key: 'root',
   storage,
+  // blacklist: ['user'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducers);
@@ -16,6 +17,9 @@ const persistedReducer = persistReducer(persistConfig, rootReducers);
 const middleware = applyMiddleware(thunk);
 
 const store = createStore(persistedReducer, middleware);
+
+persistStore(store)
+// .purge()
 
 export default store;
 
